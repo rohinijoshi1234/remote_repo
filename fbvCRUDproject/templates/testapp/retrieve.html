@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+
+    {% block body_block %}
+
+<body>
+<h1> Student Information..!!</h1>
+    <table border="2px">
+        <thead>
+            <th>Student Roll No</th>
+            <th>Student Name</th>
+            <th>Student marks</th>
+            <th>Student Address</th>
+            <th>Action</th>
+        </thead>
+        {% for stud in stud_list %}
+        <tr>
+            <td>{{stud.srollno}}</td>
+            <td>{{stud.sname}}</td>
+            <td>{{stud.smarks}}</td>
+            <td>{{stud.saddress}}</td>
+            <td><a href="/update/{{stud.id}}">Update</a></td><td><a href="/delete/{{stud.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+
+    </table><br>
+<a href="/retrieve/create" class="btn btn-primary" >Add Student..</a>
+
+</body>
+
+    {% endblock %}
